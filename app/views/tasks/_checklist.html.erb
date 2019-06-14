@@ -7,7 +7,7 @@
       </div>
       <div class="accordion-content"><%= done_task.content %></div>
       <% done_task.tag_list.each do |tag| %>
-        <%= link_to tag, tasks_path(tag_name: tag), class:'tag'%>
+        <%= link_to tag, tasks_path(checklist_tag_name: tag), class:'tag'%>
       <% end %>
       <%= button_to 'もう一回' %>
       <%= button_to '1Day' %>

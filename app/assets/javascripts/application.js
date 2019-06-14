@@ -26,9 +26,6 @@
 //関数のshowTabの定義
 function showTab(selector) {
   
-  //確認に使用↓
-  //console.log(selector);
-  
   $(".tabs-menu li").removeClass("active");
   
   $(".tabs-menu a[href='" + selector + "']").parent("li").addClass("active");  
@@ -43,6 +40,16 @@ function showTab(selector) {
 $(document).on('turbolinks:load',function(){
   showTab("#tabs-1");
   
+  //タブ一覧その1
+  $(".tabs-menu a").click(function(){
+    var selector = $(this).attr("href");
+    showTab(selector);
+    
+    return false;
+  });
+  //タブ一覧その2
+  showTab("#tabs-a");
+  
   
   $(".tabs-menu a").click(function(){
     var selector = $(this).attr("href");
@@ -55,7 +62,7 @@ $(document).on('turbolinks:load',function(){
 
 
 //アコーディオン(開始)
-$(document).ready(function(){
+$(document).on('turbolinks:load',function(){
   $(".accordion-title").click(function(){
     
     var content = $(this).closest("section").find(".accordion-content");
@@ -73,7 +80,7 @@ $(document).ready(function(){
 });
 
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   $(".accordion-content").click(function(){
     
     var content = $(this).closest("section").find(".accordion-content");

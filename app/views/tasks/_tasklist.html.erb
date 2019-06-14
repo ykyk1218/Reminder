@@ -29,7 +29,7 @@
                 </div>
                 <%#タグ表示 %>
                 <% task.tag_list.each do |tag| %>
-                  <%= link_to tag, tasks_path(tag_name: tag), class:'tag'%>
+                  <%= link_to tag, tasks_path(tasklist_tag_name: tag), class:'tag'%>
                 <% end %>
                 <%# ボタン配置%>
                 <% if task.status == 0 %>
