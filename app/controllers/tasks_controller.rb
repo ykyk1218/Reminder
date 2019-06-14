@@ -8,6 +8,7 @@ class TasksController < ApplicationController
       @tasks = Task.tagged_with("#{params[:tag_name]}")
       # binding.pry
       # この後ページを再表示するにはrenderメソッドを使ってタグを再表示する？
+      render 'toppages/index'
     end 
   
   end 
