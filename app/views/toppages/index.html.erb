@@ -1,0 +1,55 @@
+<%#ログインしているか確認%>
+<% if logged_in? %>
+　<%# ログイン済%>
+　<%# 冒頭のメッセージ%>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <h3><%= @message %>、<%= @name %>。</h3>
+      <h3>今日も一緒に頑張りましょう！</h3>
+    </div>
+　</div>
+　<%# 暗記カード作成画面 %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <p class="card-making">～簡易暗記カード作成～</p>
+      
+      <%= form_for(:task, url: register_path) do |f| %>
+        <%#= render 'layouts/error_messages', model: f.object %>
+      
+        <div class="form-group">
+          <%= f.text_field :title, class: 'form-control', placeholder: '覚えたい内容を入力してください' %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.text_field :content, class: 'form-control', placeholder: '覚えたい内容の答えを入力してください' %>
+        </div>
+        
+        <%= f.hidden_field :status, :value => 0 %>
+        <%= f.submit '登録',method: 'post', class: 'btn btn-primary pull-right btn-origin'%>
+      <% end %>
+      
+      <%= button_to '詳細', {controller: 'tasks',action: 'new'}, method: :get, class: 'btn btn-success pull-right' %>      
+      
+    </div>
+  </div>
+  
+  <%# Tasklistへrender。Taskを一覧表示する%>
+  <%= render 'tasks/tasklist', {tasks:@tasks, done_tasks:@done_tasks }%>
+  
+<% else %>
+　<%# ログイン未済%>
+  <div class="mycontainer">
+    <h1>Reminderへようこそ！！</h1>
+    <h3>
+      このアプリでは以下の事が出来ます<br>
+      1.<br>
+      2.<br>
+      3.<br>
+      是非、あなたの学習の手助けをさせてください！
+    </h3>
+    <h4>
+      はじめてアプリを使われる方→<%= link_to 'New Account', signup_path %><br>
+      既に会員登録されている方→<a href="#">Login</a><br>
+    </h4>
+  </div>
+<% end %>

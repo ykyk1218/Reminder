@@ -1,0 +1,17 @@
+
+
+<% done_tasks.each do |done_task| %>
+    <section>
+      <div class="accordion-title">
+        <a href="#"><%= done_task.title %></a>
+      </div>
+      <div class="accordion-content"><%= done_task.content %></div>
+      <% done_task.tag_list.each do |tag| %>
+        <%= link_to tag, tasks_path(tag_name: tag), class:'tag'%>
+      <% end %>
+      <%= button_to 'もう一回' %>
+      <%= button_to '1Day' %>
+      <%= button_to '3Day' %>
+      <%= button_to 'OK!' %>
+    </section>
+<% end %>

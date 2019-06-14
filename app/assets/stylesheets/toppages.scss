@@ -1,0 +1,131 @@
+// Place all the styles related to the toppages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+//簡易カード作成スタイリング
+.card-making {
+  font-weight: bold;
+}
+
+
+
+
+//簡易作成の登録ボタンのスタイリング
+.btn-origin {
+  margin-left: 10px;
+}
+
+
+//タブ機能CSS
+.tabs-menu {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.tabs-menu li {
+  float: left;
+  // margin-right: 10px;
+  margin-bottom: -1px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent;
+  border-radius: 4px 4px 0 0;
+  
+  
+  transition: all 0.2s;
+}
+
+
+.tabs-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #557F95;
+  text-decoration: none;
+}
+
+.tabs-munu li:not(.active):hover {
+  border-color: #f0f0f0 #f0f0f0 #999;
+  background-color: #f0f0f0;
+}
+
+.tabs-menu .active {
+  border-color: #999 #999 transparent #999;
+  background-color: #fff;
+}
+
+.tabs-menu .active a {
+  //color: #3F4548;
+  font-weight: bold;
+}
+
+
+.tabs-content {
+  clear: both;
+  border: 1px solid #999;
+  border-radius: 0 4px 4px 4px;
+  padding: 10px;
+}
+
+// .tabs-content section {
+//   display: none;
+// }
+
+//出題数の下のマージン調整
+.task-count {
+  margin-bottom: 10px;
+}
+
+//アコーディオンCSS
+//アコーディオンタイトル(表)部分
+.accordion-title {
+  margin: 0;
+  border:1px solid #ccc;
+  background-color: white;
+  //font-size: 1rem;
+}
+
+
+.accordion-title a {
+  display: block;
+  padding: 6px;
+  color: #3F4548;
+  text-decoration: none;
+}
+
+//アコーディオン答え(裏)部分
+.accordion-content {
+  display: none;
+  //height: 60px;は文字量により変わるので空白
+  padding: 12px 6px;
+  border: 1px solid #CCC;
+  background-color: white;
+}
+
+//カード裏・内容のタグリンク以外
+.accordion-content a:not(.tag) {
+  display: block;
+  padding: 6px;
+  color: #3F4548;
+  text-decoration: none;
+}
+
+//カード裏・内容のタグのhover時
+.accordion-content a[class="tag"]{
+  text-decoration: none;
+  color: #337ab7;
+}
+
+
+
+
+
+
+
+
+
+
+
+

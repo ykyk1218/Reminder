@@ -1,0 +1,29 @@
+<div class="text-center">
+  <h2>カードの編集</h2>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    
+    <%= form_for(@task) do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="form-group">
+        <%= f.label :title, '表面' %>
+        <%= f.text_area :title, value: @task.title, size: '100*7', class: 'form-control', placeholder: '覚えたい内容を入力' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :content, '裏面' %>
+        <%= f.text_area :content, value: @task.content, size: '100*7', class: 'form-control', placeholder: '覚えたい内容の答えを入力' %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label :tag_list, 'タグ' %>：<%= f.text_field :tag_list, value: @task.tag_list.join(','), class: 'form-control', "data-role" => "tagsinput" %>
+      </div>
+      
+      <%= f.submit '変更', class: 'btn btn-primary pull-right'%>
+    <% end %>
+    
+  </div>
+
+</div>
