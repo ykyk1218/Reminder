@@ -25,36 +25,37 @@
 //タブ機能実装(開始)
 //関数のshowTabの定義
 function showTab(selector) {
-  
+
   $(".tabs-menu li").removeClass("active");
-  
-  $(".tabs-menu a[href='" + selector + "']").parent("li").addClass("active");  
+
+  $(".tabs-menu a[href='" + selector + "']").parent("li").addClass("active");
 
   $(".tabs-content > section").hide();
   $(selector).show();
-  
+
 }
 
 
 //showTabの初期実行とクリックイベント定義。ページ遷移時も含む
 $(document).on('turbolinks:load',function(){
-  showTab("#tabs-1");
-  
+  var activeTab = $(".tabs-content").data("tabActive")
+  showTab("#tabs-" + activeTab);
+
   //タブ一覧その1
   $(".tabs-menu a").click(function(){
     var selector = $(this).attr("href");
     showTab(selector);
-    
+
     return false;
   });
   //タブ一覧その2
-  showTab("#tabs-a");
-  
-  
+  //showTab("#tabs-a");
+
+
   $(".tabs-menu a").click(function(){
     var selector = $(this).attr("href");
     showTab(selector);
-    
+
     return false;
   });
 });
@@ -64,9 +65,9 @@ $(document).on('turbolinks:load',function(){
 //アコーディオン(開始)
 $(document).on('turbolinks:load',function(){
   $(".accordion-title").click(function(){
-    
+
     var content = $(this).closest("section").find(".accordion-content");
-    
+
     //コンテントが表示されていないなら
     if(!content.is(":visible")){
       content.slideDown();
@@ -74,7 +75,7 @@ $(document).on('turbolinks:load',function(){
     else {
       content.slideUp()
     }
-    
+
     return false;
   });
 });
@@ -82,9 +83,9 @@ $(document).on('turbolinks:load',function(){
 
 $(document).on('turbolinks:load', function(){
   $(".accordion-content").click(function(){
-    
+
     var content = $(this).closest("section").find(".accordion-content");
-    
+
     //コンテントが表示されていないなら
     if(!content.is(":visible")){
       content.slideDown();
@@ -92,7 +93,7 @@ $(document).on('turbolinks:load', function(){
     else {
       content.slideUp()
     }
-    
+
     return false;
   });
 });

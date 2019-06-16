@@ -1,18 +1,18 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-      
-      <%# タブ機能実装 %>  
+
+      <%# タブ機能実装 %>
       <ul class="tabs-menu">
         <li><a href="#tabs-1">問題リスト: <%= tasks.count %></a></li>
         <li><a href="#tabs-2">チェックリスト: <%= done_tasks.count %></a></li>
         <li><a href="#tabs-3">進捗状況</a></li>
       </ul>
-      
-      
-      <section class="tabs-content">
+
+
+      <section class="tabs-content" data-tab-active="<%= @active_tab %>">
         <section id="tabs-1">
-          
+
           <%# アコーディオン機能 %>
           <div class='accordion'>
             <% tasks.each do |task| %>
@@ -63,12 +63,12 @@
                     <%= button_to '3Month' %>
                     <%= button_to 'OK!' %>
                 <% end %>
-                
+
                 <%= button_to '編集', edit_task_path(task), {method: :get} %>
               </section>
             <% end %>
           </div>
-          
+
         </section>
 
 
